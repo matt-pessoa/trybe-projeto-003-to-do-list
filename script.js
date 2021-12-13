@@ -5,7 +5,7 @@ const input = document.getElementById('texto-tarefa');
 const taskList = document.getElementById('lista-tarefas');
 
 function handleClickItem(event) {
-  for (let item of taskList.children) {
+  for (const item of taskList.children) {
     item.classList.remove('selected');
     item.style.background = '';
 
@@ -25,16 +25,16 @@ function handleDoubleClickItem(event) {
   }
 }
 
-function handleMouseHover(event) {
-  event.target.style.cursor = 'pointer';
-}
+// function handleMouseHover(event) {
+//   event.target.style.cursor = 'pointer';
+// }
 
 function handleAddTask() {
   const li = document.createElement('li');
   // li.classList.add('list-item');
   li.textContent = input.value;
 
-  li.addEventListener('mouseover', handleMouseHover);
+  // li.addEventListener('mouseover', handleMouseHover);
   li.addEventListener('click', handleClickItem);
   li.addEventListener('dblclick', handleDoubleClickItem);
 
@@ -57,7 +57,7 @@ function handleRemoveDone() {
   const completedTasks = document.getElementsByClassName('completed');
 
   while (completedTasks.length !== 0) {
-    for (let item of completedTasks) {
+    for (const item of completedTasks) {
       item.remove();
     }
   }
